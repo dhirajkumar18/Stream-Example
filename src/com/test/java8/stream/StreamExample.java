@@ -103,5 +103,6 @@ public class StreamExample {
         System.out.println("list5" +list5);
        List<Integer> duplicates= list5.stream().filter(n -> !set.add(n)).toList();
         System.out.println("duplicates "+duplicates);
+
     }
 }
