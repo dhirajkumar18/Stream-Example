@@ -3,6 +3,7 @@ package com.test.java8.stream;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamExample {
 
@@ -103,6 +104,11 @@ public class StreamExample {
         System.out.println("list5" +list5);
        List<Integer> duplicates= list5.stream().filter(n -> !set.add(n)).toList();
         System.out.println("duplicates "+duplicates);
+        // 21. fibanico series
+
+        List<Integer> fibseries = Stream.iterate(new int[]{0, 1}, f -> new int[]{f[1], f[0] + f[1]}).limit(10)
+                .map(fib -> fib[1]).collect(Collectors.toList());
+        System.out.println(fibseries);
 
     }
 }
