@@ -133,10 +133,16 @@ public class StreamExample {
         System.out.println("s1="+s1);
         System.out.println("s2="+s2);
 
-       // calculate factorial
+       // 25. calculate factorial
        int fact= IntStream.rangeClosed(1,5).reduce((a,b) -> a*b).getAsInt();
         System.out.println("factorial of 5 ="+fact);
-        
 
+        // 26. find palindrome from list
+
+        List<String> plist= Arrays.asList("Madam","books","pen","noOn","wow","mouse");
+        List<String> list = plist.stream().map(String::toLowerCase).filter(word -> word.equals(new StringBuilder(word).reverse()
+                        .toString())).toList();
+        System.out.println(list);
+  
     }
 }
