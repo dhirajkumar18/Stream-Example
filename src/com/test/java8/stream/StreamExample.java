@@ -110,5 +110,28 @@ public class StreamExample {
                 .map(fib -> fib[1]).collect(Collectors.toList());
         System.out.println(fibseries);
 
+         // 22. find first repeated character
+        String str="welcome";
+        Character ch = str.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream().filter(s -> s.getValue() > 1).map(Map.Entry::getKey).findFirst().get();
+        System.out.println(ch);
+
+        // 23. find first not repeated character
+        Character ch2 = str.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity()
+                        , LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream().filter(k -> k.getValue() == 1).map(Map.Entry::getKey).findFirst().get();
+        System.out.println(ch2);
+
+        //24. string swapping without using another variable
+
+        String s1="dhiraj";
+        String s2="kumar";
+        // s1="kumar" ,s2="dhiraj"
+        s1=s1+s2;
+        s2=s1.substring(0,s1.length()-s2.length());
+        s1=s1.substring(s2.length());
+        System.out.println("s1="+s1);
+        System.out.println("s2="+s2);
+
     }
 }
