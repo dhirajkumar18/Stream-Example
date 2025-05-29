@@ -133,5 +133,10 @@ public class StreamExample {
         System.out.println("s1="+s1);
         System.out.println("s2="+s2);
 
+       // calculate factorial
+       int fact= IntStream.rangeClosed(1,5).reduce((a,b) -> a*b).getAsInt();
+        System.out.println("factorial of 5 ="+fact);
+        
+
     }
 }
